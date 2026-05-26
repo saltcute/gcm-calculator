@@ -8,13 +8,13 @@ export function getRouter() {
             input: ({ url }) => {
                 if (!import.meta.env.DEV) {
                     if (url.hostname === "calc.maimaidx.cab") {
-                        url.pathname = `/maimaidx/${url.pathname}`;
+                        url.pathname = `/maimaidx${url.pathname}`;
                     } else if (url.hostname === "calc.maimai.cab") {
-                        url.pathname = `/maimai/${url.pathname}`;
+                        url.pathname = `/maimai${url.pathname}`;
                     } else if (url.hostname === "calc.chunithm.cab") {
-                        url.pathname = `/chunithm/${url.pathname}`;
+                        url.pathname = `/chunithm${url.pathname}`;
                     } else if (url.hostname === "calc.ongeki.cab") {
-                        url.pathname = `/ongeki/${url.pathname}`;
+                        url.pathname = `/ongeki${url.pathname}`;
                     }
                 }
 
