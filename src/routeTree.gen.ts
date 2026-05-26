@@ -9,104 +9,380 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoI18nRouteImport } from './routes/demo.i18n'
-import { Route as DemoSentryTestingRouteImport } from './routes/demo/sentry.testing'
+import { Route as OngekiRouteImport } from './routes/ongeki'
+import { Route as MaimaidxRouteImport } from './routes/maimaidx'
+import { Route as MaimaiRouteImport } from './routes/maimai'
+import { Route as ChunithmRouteImport } from './routes/chunithm'
+import { Route as OngekiIndexRouteImport } from './routes/ongeki.index'
+import { Route as MaimaidxIndexRouteImport } from './routes/maimaidx.index'
+import { Route as MaimaiIndexRouteImport } from './routes/maimai.index'
+import { Route as ChunithmIndexRouteImport } from './routes/chunithm.index'
+import { Route as OngekiRatingIndexRouteImport } from './routes/ongeki/rating.index'
+import { Route as OngekiAchievementIndexRouteImport } from './routes/ongeki/achievement.index'
+import { Route as MaimaidxRatingIndexRouteImport } from './routes/maimaidx/rating.index'
+import { Route as MaimaidxAchievementIndexRouteImport } from './routes/maimaidx/achievement.index'
+import { Route as MaimaiRatingIndexRouteImport } from './routes/maimai/rating.index'
+import { Route as ChunithmRatingIndexRouteImport } from './routes/chunithm/rating.index'
+import { Route as ChunithmAchievementIndexRouteImport } from './routes/chunithm/achievement.index'
 
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const OngekiRoute = OngekiRouteImport.update({
+  id: '/ongeki',
+  path: '/ongeki',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const MaimaidxRoute = MaimaidxRouteImport.update({
+  id: '/maimaidx',
+  path: '/maimaidx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaimaiRoute = MaimaiRouteImport.update({
+  id: '/maimai',
+  path: '/maimai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChunithmRoute = ChunithmRouteImport.update({
+  id: '/chunithm',
+  path: '/chunithm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OngekiIndexRoute = OngekiIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => OngekiRoute,
 } as any)
-const DemoI18nRoute = DemoI18nRouteImport.update({
-  id: '/demo/i18n',
-  path: '/demo/i18n',
-  getParentRoute: () => rootRouteImport,
+const MaimaidxIndexRoute = MaimaidxIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MaimaidxRoute,
 } as any)
-const DemoSentryTestingRoute = DemoSentryTestingRouteImport.update({
-  id: '/demo/sentry/testing',
-  path: '/demo/sentry/testing',
-  getParentRoute: () => rootRouteImport,
+const MaimaiIndexRoute = MaimaiIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MaimaiRoute,
 } as any)
+const ChunithmIndexRoute = ChunithmIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ChunithmRoute,
+} as any)
+const OngekiRatingIndexRoute = OngekiRatingIndexRouteImport.update({
+  id: '/rating/',
+  path: '/rating/',
+  getParentRoute: () => OngekiRoute,
+} as any)
+const OngekiAchievementIndexRoute = OngekiAchievementIndexRouteImport.update({
+  id: '/achievement/',
+  path: '/achievement/',
+  getParentRoute: () => OngekiRoute,
+} as any)
+const MaimaidxRatingIndexRoute = MaimaidxRatingIndexRouteImport.update({
+  id: '/rating/',
+  path: '/rating/',
+  getParentRoute: () => MaimaidxRoute,
+} as any)
+const MaimaidxAchievementIndexRoute =
+  MaimaidxAchievementIndexRouteImport.update({
+    id: '/achievement/',
+    path: '/achievement/',
+    getParentRoute: () => MaimaidxRoute,
+  } as any)
+const MaimaiRatingIndexRoute = MaimaiRatingIndexRouteImport.update({
+  id: '/rating/',
+  path: '/rating/',
+  getParentRoute: () => MaimaiRoute,
+} as any)
+const ChunithmRatingIndexRoute = ChunithmRatingIndexRouteImport.update({
+  id: '/rating/',
+  path: '/rating/',
+  getParentRoute: () => ChunithmRoute,
+} as any)
+const ChunithmAchievementIndexRoute =
+  ChunithmAchievementIndexRouteImport.update({
+    id: '/achievement/',
+    path: '/achievement/',
+    getParentRoute: () => ChunithmRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/demo/i18n': typeof DemoI18nRoute
-  '/demo/sentry/testing': typeof DemoSentryTestingRoute
+  '/chunithm': typeof ChunithmRouteWithChildren
+  '/maimai': typeof MaimaiRouteWithChildren
+  '/maimaidx': typeof MaimaidxRouteWithChildren
+  '/ongeki': typeof OngekiRouteWithChildren
+  '/chunithm/': typeof ChunithmIndexRoute
+  '/maimai/': typeof MaimaiIndexRoute
+  '/maimaidx/': typeof MaimaidxIndexRoute
+  '/ongeki/': typeof OngekiIndexRoute
+  '/chunithm/achievement/': typeof ChunithmAchievementIndexRoute
+  '/chunithm/rating/': typeof ChunithmRatingIndexRoute
+  '/maimai/rating/': typeof MaimaiRatingIndexRoute
+  '/maimaidx/achievement/': typeof MaimaidxAchievementIndexRoute
+  '/maimaidx/rating/': typeof MaimaidxRatingIndexRoute
+  '/ongeki/achievement/': typeof OngekiAchievementIndexRoute
+  '/ongeki/rating/': typeof OngekiRatingIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/demo/i18n': typeof DemoI18nRoute
-  '/demo/sentry/testing': typeof DemoSentryTestingRoute
+  '/chunithm': typeof ChunithmIndexRoute
+  '/maimai': typeof MaimaiIndexRoute
+  '/maimaidx': typeof MaimaidxIndexRoute
+  '/ongeki': typeof OngekiIndexRoute
+  '/chunithm/achievement': typeof ChunithmAchievementIndexRoute
+  '/chunithm/rating': typeof ChunithmRatingIndexRoute
+  '/maimai/rating': typeof MaimaiRatingIndexRoute
+  '/maimaidx/achievement': typeof MaimaidxAchievementIndexRoute
+  '/maimaidx/rating': typeof MaimaidxRatingIndexRoute
+  '/ongeki/achievement': typeof OngekiAchievementIndexRoute
+  '/ongeki/rating': typeof OngekiRatingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/demo/i18n': typeof DemoI18nRoute
-  '/demo/sentry/testing': typeof DemoSentryTestingRoute
+  '/chunithm': typeof ChunithmRouteWithChildren
+  '/maimai': typeof MaimaiRouteWithChildren
+  '/maimaidx': typeof MaimaidxRouteWithChildren
+  '/ongeki': typeof OngekiRouteWithChildren
+  '/chunithm/': typeof ChunithmIndexRoute
+  '/maimai/': typeof MaimaiIndexRoute
+  '/maimaidx/': typeof MaimaidxIndexRoute
+  '/ongeki/': typeof OngekiIndexRoute
+  '/chunithm/achievement/': typeof ChunithmAchievementIndexRoute
+  '/chunithm/rating/': typeof ChunithmRatingIndexRoute
+  '/maimai/rating/': typeof MaimaiRatingIndexRoute
+  '/maimaidx/achievement/': typeof MaimaidxAchievementIndexRoute
+  '/maimaidx/rating/': typeof MaimaidxRatingIndexRoute
+  '/ongeki/achievement/': typeof OngekiAchievementIndexRoute
+  '/ongeki/rating/': typeof OngekiRatingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/demo/i18n' | '/demo/sentry/testing'
+  fullPaths:
+    | '/chunithm'
+    | '/maimai'
+    | '/maimaidx'
+    | '/ongeki'
+    | '/chunithm/'
+    | '/maimai/'
+    | '/maimaidx/'
+    | '/ongeki/'
+    | '/chunithm/achievement/'
+    | '/chunithm/rating/'
+    | '/maimai/rating/'
+    | '/maimaidx/achievement/'
+    | '/maimaidx/rating/'
+    | '/ongeki/achievement/'
+    | '/ongeki/rating/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/demo/i18n' | '/demo/sentry/testing'
-  id: '__root__' | '/' | '/about' | '/demo/i18n' | '/demo/sentry/testing'
+  to:
+    | '/chunithm'
+    | '/maimai'
+    | '/maimaidx'
+    | '/ongeki'
+    | '/chunithm/achievement'
+    | '/chunithm/rating'
+    | '/maimai/rating'
+    | '/maimaidx/achievement'
+    | '/maimaidx/rating'
+    | '/ongeki/achievement'
+    | '/ongeki/rating'
+  id:
+    | '__root__'
+    | '/chunithm'
+    | '/maimai'
+    | '/maimaidx'
+    | '/ongeki'
+    | '/chunithm/'
+    | '/maimai/'
+    | '/maimaidx/'
+    | '/ongeki/'
+    | '/chunithm/achievement/'
+    | '/chunithm/rating/'
+    | '/maimai/rating/'
+    | '/maimaidx/achievement/'
+    | '/maimaidx/rating/'
+    | '/ongeki/achievement/'
+    | '/ongeki/rating/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  DemoI18nRoute: typeof DemoI18nRoute
-  DemoSentryTestingRoute: typeof DemoSentryTestingRoute
+  ChunithmRoute: typeof ChunithmRouteWithChildren
+  MaimaiRoute: typeof MaimaiRouteWithChildren
+  MaimaidxRoute: typeof MaimaidxRouteWithChildren
+  OngekiRoute: typeof OngekiRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/ongeki': {
+      id: '/ongeki'
+      path: '/ongeki'
+      fullPath: '/ongeki'
+      preLoaderRoute: typeof OngekiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/maimaidx': {
+      id: '/maimaidx'
+      path: '/maimaidx'
+      fullPath: '/maimaidx'
+      preLoaderRoute: typeof MaimaidxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maimai': {
+      id: '/maimai'
+      path: '/maimai'
+      fullPath: '/maimai'
+      preLoaderRoute: typeof MaimaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chunithm': {
+      id: '/chunithm'
+      path: '/chunithm'
+      fullPath: '/chunithm'
+      preLoaderRoute: typeof ChunithmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ongeki/': {
+      id: '/ongeki/'
       path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/ongeki/'
+      preLoaderRoute: typeof OngekiIndexRouteImport
+      parentRoute: typeof OngekiRoute
     }
-    '/demo/i18n': {
-      id: '/demo/i18n'
-      path: '/demo/i18n'
-      fullPath: '/demo/i18n'
-      preLoaderRoute: typeof DemoI18nRouteImport
-      parentRoute: typeof rootRouteImport
+    '/maimaidx/': {
+      id: '/maimaidx/'
+      path: '/'
+      fullPath: '/maimaidx/'
+      preLoaderRoute: typeof MaimaidxIndexRouteImport
+      parentRoute: typeof MaimaidxRoute
     }
-    '/demo/sentry/testing': {
-      id: '/demo/sentry/testing'
-      path: '/demo/sentry/testing'
-      fullPath: '/demo/sentry/testing'
-      preLoaderRoute: typeof DemoSentryTestingRouteImport
-      parentRoute: typeof rootRouteImport
+    '/maimai/': {
+      id: '/maimai/'
+      path: '/'
+      fullPath: '/maimai/'
+      preLoaderRoute: typeof MaimaiIndexRouteImport
+      parentRoute: typeof MaimaiRoute
+    }
+    '/chunithm/': {
+      id: '/chunithm/'
+      path: '/'
+      fullPath: '/chunithm/'
+      preLoaderRoute: typeof ChunithmIndexRouteImport
+      parentRoute: typeof ChunithmRoute
+    }
+    '/ongeki/rating/': {
+      id: '/ongeki/rating/'
+      path: '/rating'
+      fullPath: '/ongeki/rating/'
+      preLoaderRoute: typeof OngekiRatingIndexRouteImport
+      parentRoute: typeof OngekiRoute
+    }
+    '/ongeki/achievement/': {
+      id: '/ongeki/achievement/'
+      path: '/achievement'
+      fullPath: '/ongeki/achievement/'
+      preLoaderRoute: typeof OngekiAchievementIndexRouteImport
+      parentRoute: typeof OngekiRoute
+    }
+    '/maimaidx/rating/': {
+      id: '/maimaidx/rating/'
+      path: '/rating'
+      fullPath: '/maimaidx/rating/'
+      preLoaderRoute: typeof MaimaidxRatingIndexRouteImport
+      parentRoute: typeof MaimaidxRoute
+    }
+    '/maimaidx/achievement/': {
+      id: '/maimaidx/achievement/'
+      path: '/achievement'
+      fullPath: '/maimaidx/achievement/'
+      preLoaderRoute: typeof MaimaidxAchievementIndexRouteImport
+      parentRoute: typeof MaimaidxRoute
+    }
+    '/maimai/rating/': {
+      id: '/maimai/rating/'
+      path: '/rating'
+      fullPath: '/maimai/rating/'
+      preLoaderRoute: typeof MaimaiRatingIndexRouteImport
+      parentRoute: typeof MaimaiRoute
+    }
+    '/chunithm/rating/': {
+      id: '/chunithm/rating/'
+      path: '/rating'
+      fullPath: '/chunithm/rating/'
+      preLoaderRoute: typeof ChunithmRatingIndexRouteImport
+      parentRoute: typeof ChunithmRoute
+    }
+    '/chunithm/achievement/': {
+      id: '/chunithm/achievement/'
+      path: '/achievement'
+      fullPath: '/chunithm/achievement/'
+      preLoaderRoute: typeof ChunithmAchievementIndexRouteImport
+      parentRoute: typeof ChunithmRoute
     }
   }
 }
 
+interface ChunithmRouteChildren {
+  ChunithmIndexRoute: typeof ChunithmIndexRoute
+  ChunithmAchievementIndexRoute: typeof ChunithmAchievementIndexRoute
+  ChunithmRatingIndexRoute: typeof ChunithmRatingIndexRoute
+}
+
+const ChunithmRouteChildren: ChunithmRouteChildren = {
+  ChunithmIndexRoute: ChunithmIndexRoute,
+  ChunithmAchievementIndexRoute: ChunithmAchievementIndexRoute,
+  ChunithmRatingIndexRoute: ChunithmRatingIndexRoute,
+}
+
+const ChunithmRouteWithChildren = ChunithmRoute._addFileChildren(
+  ChunithmRouteChildren,
+)
+
+interface MaimaiRouteChildren {
+  MaimaiIndexRoute: typeof MaimaiIndexRoute
+  MaimaiRatingIndexRoute: typeof MaimaiRatingIndexRoute
+}
+
+const MaimaiRouteChildren: MaimaiRouteChildren = {
+  MaimaiIndexRoute: MaimaiIndexRoute,
+  MaimaiRatingIndexRoute: MaimaiRatingIndexRoute,
+}
+
+const MaimaiRouteWithChildren =
+  MaimaiRoute._addFileChildren(MaimaiRouteChildren)
+
+interface MaimaidxRouteChildren {
+  MaimaidxIndexRoute: typeof MaimaidxIndexRoute
+  MaimaidxAchievementIndexRoute: typeof MaimaidxAchievementIndexRoute
+  MaimaidxRatingIndexRoute: typeof MaimaidxRatingIndexRoute
+}
+
+const MaimaidxRouteChildren: MaimaidxRouteChildren = {
+  MaimaidxIndexRoute: MaimaidxIndexRoute,
+  MaimaidxAchievementIndexRoute: MaimaidxAchievementIndexRoute,
+  MaimaidxRatingIndexRoute: MaimaidxRatingIndexRoute,
+}
+
+const MaimaidxRouteWithChildren = MaimaidxRoute._addFileChildren(
+  MaimaidxRouteChildren,
+)
+
+interface OngekiRouteChildren {
+  OngekiIndexRoute: typeof OngekiIndexRoute
+  OngekiAchievementIndexRoute: typeof OngekiAchievementIndexRoute
+  OngekiRatingIndexRoute: typeof OngekiRatingIndexRoute
+}
+
+const OngekiRouteChildren: OngekiRouteChildren = {
+  OngekiIndexRoute: OngekiIndexRoute,
+  OngekiAchievementIndexRoute: OngekiAchievementIndexRoute,
+  OngekiRatingIndexRoute: OngekiRatingIndexRoute,
+}
+
+const OngekiRouteWithChildren =
+  OngekiRoute._addFileChildren(OngekiRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  DemoI18nRoute: DemoI18nRoute,
-  DemoSentryTestingRoute: DemoSentryTestingRoute,
+  ChunithmRoute: ChunithmRouteWithChildren,
+  MaimaiRoute: MaimaiRouteWithChildren,
+  MaimaidxRoute: MaimaidxRouteWithChildren,
+  OngekiRoute: OngekiRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

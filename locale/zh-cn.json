@@ -1,0 +1,87 @@
+{
+    "generic": {
+        "title": "击中萌计算器"
+    },
+    "languages": {
+        "en": "English",
+        "zh-cn": "简体中文"
+    },
+    "games": {
+        "maimaidx": {
+            "title": "舞萌DX",
+            "tools": {
+                "rating": {
+                    "title": "Rating",
+                    "input": {
+                        "constants": {
+                            "title": "定数",
+                            "tooltip": "如果你不知道定数是什么，13/14 用 .0, 13+/14+ 用 .6 就可以了。"
+                        },
+                        "achievement": "达成率",
+                        "rating": "Rating",
+                        "isAP": {
+                            "title": "已达成完美无缺",
+                            "tooltip": "包括完美无缺与完美无缺+。"
+                        },
+                        "versions": {
+                            "dx": "舞萌DX 2026 与更早版本",
+                            "circle": "舞萌DX 2027（预测/CiRCLE）或更晚版本"
+                        }
+                    },
+                    "output": {
+                        "suggestion": {
+                            "next-boost": "距离下一次 rating 提升还差 {{diff}}%。\n达成后可以上 {{boost}} 分。",
+                            "AP-required": "达成完美无缺或完美无缺+\n来获得额外 1 点 rating。",
+                            "maxed": "已达成理论 rating。\n恭喜！"
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "达成率"
+                }
+            }
+        },
+        "chunithm": {
+            "title": "中二节奏",
+            "tools": {
+                "rating": {
+                    "title": "Rating",
+                    "input": {
+                        "constants": {
+                            "title": "定数",
+                            "tooltip": "如果你不知道定数是什么，13/14 用 .0, 13+/14+ 用 .6 就可以了。"
+                        },
+                        "achievement": "分数",
+                        "rating": "Rating",
+                        "versions": {
+                            "origin": "中二节奏 Paradise Lost 和更早版本",
+                            "new": "中二节奏NEW!! 或更晚版本"
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "分数"
+                }
+            }
+        },
+        "ongeki": {
+            "title": "音击",
+            "tools": {
+                "rating": {
+                    "title": "Rating"
+                },
+                "achievement": {
+                    "title": "技术评分"
+                }
+            }
+        },
+        "maimai": {
+            "title": "maimai FiNALE",
+            "tools": {
+                "rating": {
+                    "title": "Rating"
+                }
+            }
+        }
+    }
+}

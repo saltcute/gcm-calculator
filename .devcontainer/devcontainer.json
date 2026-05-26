@@ -2,6 +2,7 @@
   "name": "gcm-calculator",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
   "forwardPorts": [3000],
+  "appPort": ["3000:3000"],
   "postCreateCommand": "npm install",
   "mounts": [
     "source=gcm-calculator-claude-config,target=/home/node/.claude,type=volume"

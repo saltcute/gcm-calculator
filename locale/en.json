@@ -1,0 +1,87 @@
+{
+    "generic": {
+        "title": "GekiChuMai Calculator"
+    },
+    "languages": {
+        "en": "English",
+        "zh-cn": "简体中文"
+    },
+    "games": {
+        "maimaidx": {
+            "title": "maimai DX",
+            "tools": {
+                "rating": {
+                    "title": "Rating",
+                    "input": {
+                        "constants": {
+                            "title": "Internal Level",
+                            "tooltip": "If you don't know the internal, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
+                        },
+                        "achievement": "Achievement Rate",
+                        "rating": "Rating",
+                        "isAP": {
+                            "title": "Has AP Lamp",
+                            "tooltip": "Includes both All Perfect and All Perfect+."
+                        },
+                        "versions": {
+                            "dx": "maimai DX PRiSM PLUS and earlier",
+                            "circle": "maimai DX CiRCLE and later"
+                        }
+                    },
+                    "output": {
+                        "suggestion": {
+                            "next-boost": "{{diff}}% until next rating boost.\nYou will gain {{boost}} rating.",
+                            "AP-required": "Achieve AP or AP+\nto gain 1 extra rating.",
+                            "maxed": "Max rating achieved.\nCongrats!"
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "Achievement Rate"
+                }
+            }
+        },
+        "chunithm": {
+            "title": "CHUNITHM",
+            "tools": {
+                "rating": {
+                    "title": "Rating",
+                    "input": {
+                        "constants": {
+                            "title": "Internal Level",
+                            "tooltip": "If you don't know the internal, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
+                        },
+                        "achievement": "Score",
+                        "rating": "Rating",
+                        "versions": {
+                            "origin": "CHUNITHM Paradise Lost and earlier",
+                            "new": "CHUNITHM NEW!! and later"
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "Score"
+                }
+            }
+        },
+        "ongeki": {
+            "title": "O.N.G.E.K.I.",
+            "tools": {
+                "rating": {
+                    "title": "Rating"
+                },
+                "achievement": {
+                    "title": "Technical Score"
+                }
+            }
+        },
+        "maimai": {
+            "title": "maimai FiNALE",
+            "tools": {
+                "rating": {
+                    "title": "Rating"
+                }
+            }
+        }
+    }
+}
