@@ -88,7 +88,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                     <img
                         src={bgPath}
                         alt="Background"
-                        className="blur-sm scale-102 fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none"
+                        className="select-none blur-sm scale-102 fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none"
                     />
                 )}
                 <ThemeProvider
