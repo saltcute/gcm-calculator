@@ -11,9 +11,8 @@ import NumberField from "#/components/NumberField";
 import useLoadStorage from "#/hooks/useLoadStorage";
 import useStorage from "#/hooks/useStorage";
 import {
-    calculateAchievementDifferenceUntilNextMilestone,
+    calculateNextRatingBoost,
     calculateRating,
-    calculateRatingBoostAfterNextMilestone,
 } from "#/lib/calculator/maimaidx";
 import { truncate } from "#/lib/util";
 
@@ -49,8 +48,12 @@ function RouteComponent() {
         "/maimaidx/rating",
     );
 
-    const ratingDiff =
-        calculateAchievementDifferenceUntilNextMilestone(achievement);
+    const { diff, boost } = calculateNextRatingBoost(
+        constants,
+        achievement,
+        isAP,
+        version,
+    );
 
     return (
         <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
@@ -134,7 +137,7 @@ function RouteComponent() {
                     </div>
                 </div>
                 <div className="text-center whitespace-pre-line sm:text-base text-sm xl:text-xl">
-                    {ratingDiff === null
+                    {!diff
                         ? version === "circle" && !isAP
                             ? t(
                                   "games.maimaidx.tools.rating.output.suggestion.AP-required",
@@ -145,11 +148,8 @@ function RouteComponent() {
                         : t(
                               "games.maimaidx.tools.rating.output.suggestion.next-boost",
                               {
-                                  diff: ratingDiff,
-                                  boost: calculateRatingBoostAfterNextMilestone(
-                                      constants,
-                                      achievement,
-                                  ),
+                                  diff: truncate(diff, 4),
+                                  boost: truncate(boost, 0),
                               },
                           )}
                 </div>

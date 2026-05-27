@@ -45,30 +45,69 @@ export function calculateRating(
     return rating;
 }
 
-export function calculateAchievementDifferenceUntilNextMilestone(
-    achievement: number,
-) {
-    let lastAchievementRequired = -1;
-    for (const [achievementRequired] of RATING_CONSTANTS) {
-        if (achievement >= achievementRequired) break;
-        lastAchievementRequired = achievementRequired;
-    }
-    if (lastAchievementRequired < 0) return null;
-    return truncateNumber(lastAchievementRequired - achievement, 4);
-}
-
-export function calculateRatingBoostAfterNextMilestone(
+export function calculateNextRatingBoost(
     internalLevel: number,
     achievement: number,
-) {
-    let lastAchievementRequired = -1;
-    for (const [achievementRequired] of RATING_CONSTANTS) {
-        if (achievement >= achievementRequired) break;
-        lastAchievementRequired = achievementRequired;
-    }
-    if (lastAchievementRequired < 0) return null;
-    return (
-        calculateRating(internalLevel, lastAchievementRequired, false, "dx") -
-        calculateRating(internalLevel, achievement, false, "dx")
+    isAP: boolean,
+    version: "dx" | "circle",
+): {
+    diff: number;
+    boost: number;
+} {
+    if (achievement >= 100.5) return { diff: 0, boost: 0 };
+
+    const ACH_PRECISION = 4;
+    const ACH_MULT = 10 ** ACH_PRECISION;
+    const ceilToStep = (v: number) =>
+        Math.min(Math.ceil(v * ACH_MULT) / ACH_MULT, 100.5);
+
+    const currentRating = calculateRating(
+        internalLevel,
+        achievement,
+        isAP,
+        version,
     );
+
+    const candidates: number[] = [];
+
+    for (const [score] of RATING_CONSTANTS) {
+        if (score > achievement && score <= 100.5) candidates.push(score);
+    }
+
+    const currentTierIndex = RATING_CONSTANTS.findIndex(
+        ([score]) => achievement >= score,
+    );
+    if (currentTierIndex !== -1) {
+        const [, currentConstant] = RATING_CONSTANTS[currentTierIndex];
+        if (currentConstant > 0 && internalLevel > 0) {
+            const required =
+                ((currentRating + 1) * 100) /
+                (currentConstant * internalLevel);
+            const base = Math.round(ceilToStep(required) * ACH_MULT);
+            for (let i = 0; i < 10; i++) {
+                candidates.push((base + i) / ACH_MULT);
+            }
+        }
+    }
+
+    candidates.push(100.5);
+
+    let bestTarget: number | null = null;
+    let bestRating = currentRating;
+    for (const raw of candidates) {
+        const target = ceilToStep(raw);
+        if (target <= achievement) continue;
+        const r = calculateRating(internalLevel, target, isAP, version);
+        if (r > currentRating && (bestTarget === null || target < bestTarget)) {
+            bestTarget = target;
+            bestRating = r;
+        }
+    }
+
+    if (bestTarget === null) return { diff: 0, boost: 0 };
+
+    return {
+        diff: truncateNumber(bestTarget - achievement, ACH_PRECISION),
+        boost: bestRating - currentRating,
+    };
 }
