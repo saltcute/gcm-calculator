@@ -98,74 +98,67 @@ function RouteComponent() {
                         value={version}
                         onChange={(v) => setVersion(v)}
                     />
-                    <AnimatePresence>
-                        {version === "refresh" && (
-                            <motion.div
-                                layout
-                                initial={{ scale: 0.5, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0, opacity: 1 }}
-                                className="flex gap-2 justify-between"
-                            >
-                                <FormControl className="flex-1">
-                                    <InputLabel id="ongeki-stars-select-label">
-                                        Stars
-                                    </InputLabel>
-                                    <Select
-                                        labelId="ongeki-stars-select-label"
-                                        value={stars}
-                                        label="Stars"
-                                        onChange={(e) =>
-                                            setStars(e.target.value)
-                                        }
-                                    >
-                                        {[0, 1, 2, 3, 4, 5, 6].map((v) => (
-                                            <MenuItem key={v} value={v}>
-                                                {t(
-                                                    `games.ongeki.tools.rating.input.stars.${v}`,
-                                                )}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
-                                <FormControl className="flex-1">
-                                    <InputLabel id="ongeki-lamp-select-label">
-                                        {t(
-                                            "games.ongeki.tools.rating.input.lamps.title",
-                                        )}
-                                    </InputLabel>
-                                    <Select
-                                        labelId="ongeki-lamp-select-label"
-                                        value={combo}
-                                        label="Combo Type"
-                                        onChange={(e) =>
-                                            setCombo(e.target.value)
-                                        }
-                                    >
-                                        {ComboLamps.map((v) => (
-                                            <MenuItem key={v} value={v}>
-                                                {t(
-                                                    `games.ongeki.tools.rating.input.lamps.values.${v}`,
-                                                )}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                onChange={(e) =>
-                                                    setBell(e.target.checked)
-                                                }
-                                            />
-                                        }
-                                        label={t(
-                                            "games.ongeki.tools.rating.input.bell.title",
-                                        )}
-                                    />
-                                </FormControl>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                    {version === "refresh" && (
+                        <motion.div
+                            layout
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="flex gap-2 justify-between"
+                        >
+                            <FormControl className="flex-1">
+                                <InputLabel id="ongeki-stars-select-label">
+                                    Stars
+                                </InputLabel>
+                                <Select
+                                    labelId="ongeki-stars-select-label"
+                                    value={stars}
+                                    label="Stars"
+                                    onChange={(e) => setStars(e.target.value)}
+                                >
+                                    {[0, 1, 2, 3, 4, 5, 6].map((v) => (
+                                        <MenuItem key={v} value={v}>
+                                            {t(
+                                                `games.ongeki.tools.rating.input.stars.${v}`,
+                                            )}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                            <FormControl className="flex-1">
+                                <InputLabel id="ongeki-lamp-select-label">
+                                    {t(
+                                        "games.ongeki.tools.rating.input.lamps.title",
+                                    )}
+                                </InputLabel>
+                                <Select
+                                    labelId="ongeki-lamp-select-label"
+                                    value={combo}
+                                    label="Combo Type"
+                                    onChange={(e) => setCombo(e.target.value)}
+                                >
+                                    {ComboLamps.map((v) => (
+                                        <MenuItem key={v} value={v}>
+                                            {t(
+                                                `games.ongeki.tools.rating.input.lamps.values.${v}`,
+                                            )}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            onChange={(e) =>
+                                                setBell(e.target.checked)
+                                            }
+                                        />
+                                    }
+                                    label={t(
+                                        "games.ongeki.tools.rating.input.bell.title",
+                                    )}
+                                />
+                            </FormControl>
+                        </motion.div>
+                    )}
                 </div>
             </div>
             <div className="flex flex-4 flex-col text-nowrap">
