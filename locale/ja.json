@@ -1,0 +1,128 @@
+{
+    "generic": {
+        "title": "ゲキチュマイ　計算機"
+    },
+    "games": {
+        "maimaidx": {
+            "title": "maimai でらっくす",
+            "tools": {
+                "rating": {
+                    "title": "レーティング",
+                    "input": {
+                        "constants": {
+                            "title": "定数",
+                            "tooltip": "定数が不明な場合、13 や 14 などのレベルには「.0」を、13+ や 14+ などのレベルには「.6」を使用してください。"
+                        },
+                        "achievement": "スコア",
+                        "rating": "レーティング",
+                        "isAP": {
+                            "title": "ALL PERFECT 達成",
+                            "tooltip": "ALL PERFECT または ALL PERFECT+ のどちらでも構いません。"
+                        },
+                        "version": {
+                            "title": "バージョン",
+                            "list": {
+                                "dx": "maimai でらっくす PRiSM PLUS 以前",
+                                "circle": "maimai でらっくす CiRCLE 以降"
+                            }
+                        }
+                    },
+                    "output": {
+                        "suggestion": {
+                            "next-boost": "次のレーティング上昇まで {{diff}}%。\n{{boost}} レーティングを獲得します。",
+                            "AP-required": "ALL PERFECT または ALL PERFECT+\nを達成するとレーティングが 1 追加されます。",
+                            "maxed": "レーティング理論値に到達しました。\nおめでとうございます！"
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "スコア"
+                }
+            }
+        },
+        "chunithm": {
+            "title": "CHUNITHM",
+            "tools": {
+                "rating": {
+                    "title": "レーティング",
+                    "input": {
+                        "constants": {
+                            "title": "定数",
+                            "tooltip": "定数が不明な場合、13 や 14 などのレベルには「.0」を、13+ や 14+ などのレベルには「.5」を使用してください。"
+                        },
+                        "achievement": "スコア",
+                        "rating": "レーティング",
+                        "version": {
+                            "title": "バージョン",
+                            "list": {
+                                "origin": "CHUNITHM Paradise Lost 以前",
+                                "new": "CHUNITHM NEW!! 以降"
+                            }
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "スコア"
+                }
+            }
+        },
+        "ongeki": {
+            "title": "オンゲキ",
+            "tools": {
+                "rating": {
+                    "title": "レーティング",
+                    "input": {
+                        "constants": {
+                            "title": "定数",
+                            "tooltip": "定数が不明な場合、13 や 14 などのレベルには「.0」を、13+ や 14+ などのレベルには「.7」を使用してください。"
+                        },
+                        "achievement": "テクニカルスコア",
+                        "rating": "レーティング",
+                        "version": {
+                            "title": "バージョン",
+                            "list": {
+                                "origin": "オンゲキ bright MEMORY Act.3 以前",
+                                "refresh": "オンゲキ Re:Fresh 以降"
+                            }
+                        },
+                        "stars": {
+                            "title": "星数",
+                            "values": {
+                                "0": "なし",
+                                "1": "☆１",
+                                "2": "☆２",
+                                "3": "☆３",
+                                "4": "☆４",
+                                "5": "☆５",
+                                "6": "虹☆５"
+                            }
+                        },
+                        "lamps": {
+                            "title": "コンボ種類",
+                            "values": {
+                                "none": "なし",
+                                "fc": "FULL COMBO",
+                                "ab": "ALL BREAK",
+                                "abp": "ALL BREAK+"
+                            }
+                        },
+                        "bell": {
+                            "title": "FULL BELL達成"
+                        }
+                    }
+                },
+                "achievement": {
+                    "title": "テクニカルスコア"
+                }
+            }
+        },
+        "maimai": {
+            "title": "maimai FiNALE",
+            "tools": {
+                "rating": {
+                    "title": "レーティング"
+                }
+            }
+        }
+    }
+}

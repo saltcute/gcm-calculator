@@ -17,7 +17,7 @@ import "@fontsource-variable/noto-sans-tc/wght.css";
 import "@fontsource/m-plus-rounded-1c/400.css";
 import "@fontsource/maple-mono/400.css";
 import "@fontsource/huninn/400.css";
-import "@fontsource/zen-kaku-gothic-new/700.css";
+import "@fontsource/biz-udpgothic/700.css";
 
 import Footer from "#/components/Footer";
 import GameSelector from "#/components/GameSelector";

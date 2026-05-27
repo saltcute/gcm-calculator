@@ -1,92 +1,92 @@
 {
     "generic": {
-        "title": "击中萌计算器"
+        "title": "ゲキチュマイ計算機"
     },
     "games": {
         "maimaidx": {
-            "title": "舞萌DX",
+            "title": "maimai DX",
             "tools": {
                 "rating": {
                     "title": "Rating",
                     "input": {
                         "constants": {
-                            "title": "定数",
-                            "tooltip": "如果你不知道定数是什么，13/14 用 .0, 13+/14+ 用 .6 就可以了。"
+                            "title": "定數",
+                            "tooltip": "如果不知道定數，13/14 就用 .0, 13+/14+ 就用 .6。"
                         },
-                        "achievement": "达成率",
+                        "achievement": "達成率",
                         "rating": "Rating",
                         "isAP": {
-                            "title": "已达成完美无缺",
-                            "tooltip": "包括完美无缺与完美无缺+。"
+                            "title": "已達成 AP",
+                            "tooltip": "包括 AP 和 AP+。"
                         },
                         "version": {
-                            "title": "选择版本",
+                            "title": "選取版本",
                             "list": {
-                                "dx": "舞萌DX 2026 与更早版本",
-                                "circle": "舞萌DX 2027（预测/CiRCLE）或更晚版本"
+                                "dx": "maimai DX PRiSM PLUS 或更舊版本",
+                                "circle": "maimai DX CiRCLE 或更新版本"
                             }
                         }
                     },
                     "output": {
                         "suggestion": {
-                            "next-boost": "距离下一次 rating 提升还差 {{diff}}%。\n达成后可以上 {{boost}} 分。",
-                            "AP-required": "达成完美无缺或完美无缺+\n来获得额外 1 点 rating。",
-                            "maxed": "已达成理论 rating。\n恭喜！"
+                            "next-boost": "距離下一次 rating 提升還需要 {{diff}}%。\n達成後可增加 {{boost}} 分。",
+                            "AP-required": "達成 AP 或 AP+\n以獲得額外 1 rating。",
+                            "maxed": "已達成理論 rating。\n恭喜！"
                         }
                     }
                 },
                 "achievement": {
-                    "title": "达成率"
+                    "title": "達成率"
                 }
             }
         },
         "chunithm": {
-            "title": "中二节奏",
+            "title": "CHUNITHM",
             "tools": {
                 "rating": {
                     "title": "Rating",
                     "input": {
                         "constants": {
-                            "title": "定数",
-                            "tooltip": "如果你不知道定数是什么，13/14 用 .0, 13+/14+ 用 .5 就可以了。"
+                            "title": "定數",
+                            "tooltip": "如果不知道定數，13/14 就用 .0, 13+/14+ 就用 .5。"
                         },
-                        "achievement": "分数",
+                        "achievement": "分數",
                         "rating": "Rating",
                         "version": {
-                            "title": "选择版本",
+                            "title": "選取版本",
                             "list": {
-                                "origin": "中二节奏 Paradise Lost 和更早版本",
-                                "new": "中二节奏NEW!! 或更晚版本"
+                                "origin": "CHUNITHM SUPER STAR PLUS (Paradise Lost) 或更舊版本",
+                                "new": "CHUNITHM NEW!! 或更新版本"
                             }
                         }
                     }
                 },
                 "achievement": {
-                    "title": "分数"
+                    "title": "分數"
                 }
             }
         },
         "ongeki": {
-            "title": "音击",
+            "title": "オンゲキ",
             "tools": {
                 "rating": {
                     "title": "Rating",
                     "input": {
                         "constants": {
-                            "title": "定数",
-                            "tooltip": "如果你不知道定数是什么，13/14 用 .0, 13+/14+ 用 .7 就可以了。"
+                            "title": "定數",
+                            "tooltip": "如果不知道定數，13/14 就用 .0, 13+/14+ 就用 .7。"
                         },
-                        "achievement": "技术评分",
+                        "achievement": "技術分數",
                         "rating": "Rating",
                         "version": {
-                            "title": "选择版本",
+                            "title": "選取版本",
                             "list": {
-                                "origin": "音击 bright MEMORY Act.3 和更早版本",
-                                "refresh": "音击 Re:Fresh 或更晚版本"
+                                "origin": "オンゲキ bright MEMORY Act.3 或更舊版本",
+                                "refresh": "オンゲキ Re:Fresh 或更新版本"
                             }
                         },
                         "stars": {
-                            "title": "星级",
+                            "title": "星別",
                             "values": {
                                 "0": "0 星",
                                 "1": "1 星",
@@ -94,25 +94,25 @@
                                 "3": "3 星",
                                 "4": "4 星",
                                 "5": "5 星",
-                                "6": "彩 5 星"
+                                "6": "虹 5 星"
                             }
                         },
                         "lamps": {
-                            "title": "连击类型",
+                            "title": "連擊類別",
                             "values": {
-                                "none": "无",
+                                "none": "沒有",
                                 "fc": "FC",
                                 "ab": "AB",
                                 "abp": "AB+"
                             }
                         },
                         "bell": {
-                            "title": "已取得 FB"
+                            "title": "已獲得 FB"
                         }
                     }
                 },
                 "achievement": {
-                    "title": "技术评分"
+                    "title": "技術分數"
                 }
             }
         },

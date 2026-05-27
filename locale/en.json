@@ -4,7 +4,9 @@
     },
     "languages": {
         "en": "English",
-        "zh-cn": "简体中文"
+        "zh-cn": "简体中文",
+        "zh-tw": "繁體中文",
+        "ja": "日本語"
     },
     "games": {
         "maimaidx": {
@@ -15,7 +17,7 @@
                     "input": {
                         "constants": {
                             "title": "Internal Level",
-                            "tooltip": "If you don't know the internal, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
+                            "tooltip": "If you don't know the internal level, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
                         },
                         "achievement": "Achievement Rate",
                         "rating": "Rating",
@@ -52,14 +54,14 @@
                     "input": {
                         "constants": {
                             "title": "Internal Level",
-                            "tooltip": "If you don't know the internal, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
+                            "tooltip": "If you don't know the internal level, use \".0\" for levels like 13 and 14, and \".5\" for levels like 13+ and 14+."
                         },
                         "achievement": "Score",
                         "rating": "Rating",
                         "version": {
                             "title": "Version",
                             "list": {
-                                "origin": "CHUNITHM Paradise Lost and earlier",
+                                "origin": "CHUNITHM SUPER STAR PLUS (Paradise Lost) and earlier",
                                 "new": "CHUNITHM NEW!! and later"
                             }
                         }
@@ -78,7 +80,7 @@
                     "input": {
                         "constants": {
                             "title": "Internal Level",
-                            "tooltip": "If you don't know the internal, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
+                            "tooltip": "If you don't know the internal level, use \".0\" for levels like 13 and 14, and \".7\" for levels like 13+ and 14+."
                         },
                         "achievement": "Technical Score",
                         "rating": "Rating",
@@ -90,13 +92,16 @@
                             }
                         },
                         "stars": {
-                            "0": "No Stars",
-                            "1": "1 Star",
-                            "2": "2 Star",
-                            "3": "3 Star",
-                            "4": "4 Star",
-                            "5": "5 Star",
-                            "6": "Rainbow 5 Star"
+                            "title": "Stars",
+                            "values": {
+                                "0": "No Stars",
+                                "1": "1 Star",
+                                "2": "2 Star",
+                                "3": "3 Star",
+                                "4": "4 Star",
+                                "5": "5 Star",
+                                "6": "Rainbow 5 Star"
+                            }
                         },
                         "lamps": {
                             "title": "Combo Type",

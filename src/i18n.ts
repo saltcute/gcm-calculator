@@ -4,9 +4,11 @@ import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import en from "../locale/en.json";
+import ja from "../locale/ja.json";
 import zhCN from "../locale/zh-cn.json";
+import zhTW from "../locale/zh-tw.json";
 
-export const SUPPORTED_LOCALES = ["en", "zh-cn"] as const;
+export const SUPPORTED_LOCALES = ["en", "zh-cn", "zh-tw", "ja"] as const;
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 export const DEFAULT_LOCALE: SupportedLocale = "en";
 
@@ -46,11 +48,6 @@ export const getInitialLocale = createIsomorphicFn()
     })
     .client((): SupportedLocale | undefined => undefined);
 
-const resources = {
-    en: { translation: en },
-    "zh-cn": { translation: zhCN },
-};
-
 const isBrowser = typeof window !== "undefined";
 
 const instance = i18n.use(initReactI18next);
@@ -59,14 +56,19 @@ if (isBrowser) {
 }
 
 instance.init({
-    resources,
+    resources: {
+        en: { translation: en },
+        "zh-cn": { translation: zhCN },
+        "zh-tw": { translation: zhTW },
+        ja: { translation: ja },
+    },
     fallbackLng: DEFAULT_LOCALE,
     supportedLngs: SUPPORTED_LOCALES as unknown as string[],
     lng: isBrowser ? undefined : DEFAULT_LOCALE,
     lowerCaseLng: true,
     interpolation: { escapeValue: false },
     detection: {
-        order: ["localStorage", "htmlTag", "navigator"],
+        order: ["localStorage", "navigator", "htmlTag"],
         caches: ["localStorage"],
     },
     returnNull: false,
