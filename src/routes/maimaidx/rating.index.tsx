@@ -53,7 +53,7 @@ function RouteComponent() {
         calculateAchievementDifferenceUntilNextMilestone(achievement);
 
     return (
-        <>
+        <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
             <div className="flex flex-col lg:flex-row grow gap-4 items-center">
                 <div className="flex flex-col gap-4">
                     <NumberField
@@ -154,6 +154,6 @@ function RouteComponent() {
                           )}
                 </div>
             </div>
-        </>
+        </div>
     );
 }
