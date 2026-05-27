@@ -5,6 +5,7 @@ export default function useLoadStorage<T extends object>(
     pathname: string,
 ): Partial<T> {
     const [value] = useState<Partial<T>>(() => {
+        if (typeof window === "undefined") return {};
         const storage = window.localStorage.getItem(
             `gcm-calulator-storage::${pathname}.${key}`,
         );
