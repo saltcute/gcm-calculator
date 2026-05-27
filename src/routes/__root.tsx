@@ -19,6 +19,7 @@ import "@fontsource/maple-mono/400.css";
 import "@fontsource/huninn/400.css";
 import "@fontsource/zen-kaku-gothic-new/700.css";
 
+import Footer from "#/components/Footer";
 import GameSelector from "#/components/GameSelector";
 import Header from "#/components/Header";
 import { muiThemeByGame } from "#/constants/muiThemeByGame";
@@ -99,11 +100,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                         ]
                     }
                 >
-                    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+                    <div className="flex min-h-screen w-full flex-col gap-2 justify-around">
                         <Header />
-                        <div className="flex grow w-full font-sans antialiased wrap-anywhere flex-col gap-8">
+                        <div className="flex grow w-full font-sans antialiased wrap-anywhere flex-col gap-4">
                             {children}
                         </div>
+                        <Footer />
                     </div>
                 </ThemeProvider>
                 <TanStackDevtools

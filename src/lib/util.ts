@@ -48,3 +48,17 @@ export function ceilWithPercision(payload: number, percision: number): string {
         }
     }
 }
+
+export function getGameByPathname(pathname: string) {
+    if (pathname.startsWith("/maimaidx")) {
+        return "maimaidx";
+    } else if (pathname.startsWith("/maimai")) {
+        return "maimai";
+    } else if (pathname.startsWith("/chunithm")) {
+        return "chunithm";
+    } else if (pathname.startsWith("/ongeki")) {
+        return "ongeki";
+    } else {
+        return "maimaidx";
+    }
+}
