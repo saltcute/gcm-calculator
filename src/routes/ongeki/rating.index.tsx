@@ -107,21 +107,27 @@ function RouteComponent() {
                         >
                             <FormControl className="flex-1">
                                 <InputLabel id="ongeki-stars-select-label">
-                                    Stars
+                                    {t(
+                                        "games.ongeki.tools.rating.input.stars.title",
+                                    )}
                                 </InputLabel>
                                 <Select
                                     labelId="ongeki-stars-select-label"
                                     value={stars}
-                                    label="Stars"
+                                    label={t(
+                                        "games.ongeki.tools.rating.input.stars.title",
+                                    )}
                                     onChange={(e) => setStars(e.target.value)}
                                 >
-                                    {[0, 1, 2, 3, 4, 5, 6].map((v) => (
-                                        <MenuItem key={v} value={v}>
-                                            {t(
-                                                `games.ongeki.tools.rating.input.stars.${v}`,
-                                            )}
-                                        </MenuItem>
-                                    ))}
+                                    {Array.from(new Array(7).keys()).map(
+                                        (v) => (
+                                            <MenuItem key={v} value={v}>
+                                                {t(
+                                                    `games.ongeki.tools.rating.input.stars.values.${v}`,
+                                                )}
+                                            </MenuItem>
+                                        ),
+                                    )}
                                 </Select>
                             </FormControl>
                             <FormControl className="flex-1">
@@ -133,7 +139,9 @@ function RouteComponent() {
                                 <Select
                                     labelId="ongeki-lamp-select-label"
                                     value={combo}
-                                    label="Combo Type"
+                                    label={t(
+                                        "games.ongeki.tools.rating.input.lamps.title",
+                                    )}
                                     onChange={(e) => setCombo(e.target.value)}
                                 >
                                     {ComboLamps.map((v) => (
