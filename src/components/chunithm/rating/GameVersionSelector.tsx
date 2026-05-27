@@ -22,7 +22,9 @@ export default function GameVersionSelector({
 
     return (
         <FormControl>
-            <FormLabel id={`${id}-label`}>Version</FormLabel>
+            <FormLabel id={`${id}-label`}>
+                {t("games.chunithm.tools.rating.input.version.title")}
+            </FormLabel>
             <RadioGroup
                 aria-labelledby={`${id}-label`}
                 value={value}
@@ -37,7 +39,7 @@ export default function GameVersionSelector({
                         value={v}
                         control={<Radio />}
                         label={t(
-                            `games.chunithm.tools.rating.input.versions.${v}`,
+                            `games.chunithm.tools.rating.input.version.list.${v}`,
                         )}
                     />
                 ))}

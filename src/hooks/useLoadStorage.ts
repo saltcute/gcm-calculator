@@ -2,9 +2,8 @@ import { useState } from "react";
 
 export default function useLoadStorage<T extends object>(
     key: string,
-    pathname :string
+    pathname: string,
 ): Partial<T> {
-
     const [value] = useState<Partial<T>>(() => {
         const storage = window.localStorage.getItem(
             `gcm-calulator-storage::${pathname}.${key}`,

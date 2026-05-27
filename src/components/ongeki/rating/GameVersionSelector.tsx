@@ -6,9 +6,9 @@ import RadioGroup from "@mui/material/RadioGroup";
 import { useId } from "react";
 import { useTranslation } from "react-i18next";
 
-const GAME_VERSIONS = ["origin", "refresh"] as const;
+export const GameVersions = ["origin", "refresh"] as const;
 
-export type GameVersions = (typeof GAME_VERSIONS)[number];
+export type GameVersions = (typeof GameVersions)[number];
 
 export default function GameVersionSelector({
     value,
@@ -22,7 +22,9 @@ export default function GameVersionSelector({
 
     return (
         <FormControl>
-            <FormLabel id={`${id}-label`}>Version</FormLabel>
+            <FormLabel id={`${id}-label`}>
+                {t("games.ongeki.tools.rating.input.version.title")}
+            </FormLabel>
             <RadioGroup
                 aria-labelledby={`${id}-label`}
                 value={value}
@@ -31,13 +33,13 @@ export default function GameVersionSelector({
                 }
                 name="radio-buttons-group"
             >
-                {GAME_VERSIONS.map((v) => (
+                {GameVersions.map((v) => (
                     <FormControlLabel
                         key={v}
                         value={v}
                         control={<Radio />}
                         label={t(
-                            `games.chunithm.tools.rating.input.versions.${v}`,
+                            `games.ongeki.tools.rating.input.version.list.${v}`,
                         )}
                     />
                 ))}

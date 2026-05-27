@@ -1,4 +1,4 @@
-import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import GameVersionSelector, {
@@ -19,8 +19,6 @@ export const Route = createFileRoute("/chunithm/rating/")({
 
 function RouteComponent() {
     const { t } = useTranslation();
-
-    const location = useLocation();
 
     const stored = useLoadStorage<{
         version: GameVersions;
@@ -48,7 +46,7 @@ function RouteComponent() {
 
     return (
         <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
-            <div className="flex flex-col xl:flex-row grow gap-4">
+            <div className="flex flex-col xl:flex-row grow gap-4 items-center">
                 <div className="flex flex-col gap-4">
                     <NumberField
                         label={t(

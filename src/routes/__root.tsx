@@ -82,7 +82,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <head>
                 <HeadContent />
             </head>
-            <body className="w-full h-full max-w-none" suppressHydrationWarning>
+            <body className="min-h-screen max-w-none" suppressHydrationWarning>
                 {!!bgPath && (
                     <img
                         src={bgPath}
@@ -99,9 +99,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                         ]
                     }
                 >
-                    <div className="flex fixed inset-0 w-full h-screen max-w-none flex-col items-center justify-center">
+                    <div className="flex min-h-screen w-full flex-col items-center justify-center">
                         <Header />
-                        <div className="flex grow w-full font-sans antialiased wrap-anywhere container flex-col items-center">
+                        <div className="flex grow w-full font-sans antialiased wrap-anywhere flex-col gap-8">
                             {children}
                         </div>
                     </div>

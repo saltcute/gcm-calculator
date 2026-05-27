@@ -2,28 +2,29 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { createLink, useLocation } from "@tanstack/react-router";
-import { useLayoutEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
 const LinkTab = createLink(Tab);
 
 export default function GameSelector({
     current,
+    className,
 }: {
     current: (typeof GameSelector.GAME_LIST)[number];
+    className?: string;
 }) {
     const { t } = useTranslation();
     const location = useLocation();
 
     return (
-        <Box className="pl-5 pr-5 rounded-full overflow-hidden w-fit bg-white/75 backdrop-blur-sm ">
-            <Tabs
-                variant="scrollable"
-                scrollButtons="auto"
-                value={current}
-                // centered
-            >
+        <Box
+            className={clsx(
+                className,
+                "flex pl-5 pr-5 rounded-full overflow-hidden w-fit bg-white/75 backdrop-blur-sm justify-center",
+            )}
+        >
+            <Tabs variant="scrollable" scrollButtons="auto" value={current}>
                 {GameSelector.GAME_LIST.map((v) => (
                     <LinkTab
                         key={v}

@@ -23,9 +23,12 @@
                             "title": "Has AP Lamp",
                             "tooltip": "Includes both All Perfect and All Perfect+."
                         },
-                        "versions": {
-                            "dx": "maimai DX PRiSM PLUS and earlier",
-                            "circle": "maimai DX CiRCLE and later"
+                        "version": {
+                            "title": "Version",
+                            "list": {
+                                "dx": "maimai DX PRiSM PLUS and earlier",
+                                "circle": "maimai DX CiRCLE and later"
+                            }
                         }
                     },
                     "output": {
@@ -53,9 +56,12 @@
                         },
                         "achievement": "Score",
                         "rating": "Rating",
-                        "versions": {
-                            "origin": "CHUNITHM Paradise Lost and earlier",
-                            "new": "CHUNITHM NEW!! and later"
+                        "version": {
+                            "title": "Version",
+                            "list": {
+                                "origin": "CHUNITHM Paradise Lost and earlier",
+                                "new": "CHUNITHM NEW!! and later"
+                            }
                         }
                     }
                 },
@@ -68,7 +74,43 @@
             "title": "O.N.G.E.K.I.",
             "tools": {
                 "rating": {
-                    "title": "Rating"
+                    "title": "Rating",
+                    "input": {
+                        "constants": {
+                            "title": "Internal Level",
+                            "tooltip": "If you don't know the internal, use \".0\" for levels like 13 and 14, and \".6\" for levels like 13+ and 14+."
+                        },
+                        "achievement": "Technical Score",
+                        "rating": "Rating",
+                        "version": {
+                            "title": "Version",
+                            "list": {
+                                "origin": "O.N.G.E.K.I. bright MEMORY Act.3 and earlier",
+                                "refresh": "O.N.G.E.K.I. Re:Fresh and later"
+                            }
+                        },
+                        "stars": {
+                            "0": "No Stars",
+                            "1": "1 Star",
+                            "2": "2 Star",
+                            "3": "3 Star",
+                            "4": "4 Star",
+                            "5": "5 Star",
+                            "6": "Rainbow 5 Star"
+                        },
+                        "lamps": {
+                            "title": "Combo Type",
+                            "values": {
+                                "none": "None",
+                                "fc": "Full Combo",
+                                "ab": "All Break",
+                                "abp": "All Break+"
+                            }
+                        },
+                        "bell": {
+                            "title": "Has Full Bell"
+                        }
+                    }
                 },
                 "achievement": {
                     "title": "Technical Score"

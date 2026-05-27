@@ -1,7 +1,7 @@
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Tooltip from "@mui/material/Tooltip";
-import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import GameVersionSelector, {
@@ -23,8 +23,6 @@ export const Route = createFileRoute("/maimaidx/rating/")({
 
 function RouteComponent() {
     const { t } = useTranslation();
-
-    const location = useLocation();
 
     const stored = useLoadStorage<{
         version: GameVersions;
@@ -55,8 +53,8 @@ function RouteComponent() {
         calculateAchievementDifferenceUntilNextMilestone(achievement);
 
     return (
-        <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
-            <div className="flex flex-col lg:flex-row grow gap-4">
+        <>
+            <div className="flex flex-col lg:flex-row grow gap-4 items-center">
                 <div className="flex flex-col gap-4">
                     <NumberField
                         label={t(
@@ -156,6 +154,6 @@ function RouteComponent() {
                           )}
                 </div>
             </div>
-        </div>
+        </>
     );
 }

@@ -2,12 +2,13 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { createLink, useLocation, useRouter } from "@tanstack/react-router";
-import { useLayoutEffect, useRef, useState } from "react";
+import clsx from "clsx";
+
 import { useTranslation } from "react-i18next";
 
 const LinkTab = createLink(Tab);
 
-export default function ToolSelector() {
+export default function ToolSelector({ className }: { className?: string }) {
     const { t } = useTranslation();
 
     const location = useLocation();
@@ -28,7 +29,12 @@ export default function ToolSelector() {
 
     return (
         toolList.length <= 1 || (
-            <Box className="grow-0 pl-5 pr-5 rounded-full overflow-hidden w-fit bg-white/75 backdrop-blur-sm ">
+            <Box
+                className={clsx(
+                    className,
+                    "grow-0 pl-5 pr-5 rounded-full overflow-hidden w-fit bg-white/75 backdrop-blur-sm",
+                )}
+            >
                 <Tabs value={currentTool} centered sx={{ minHeight: 36 }}>
                     {toolList.map((v) => (
                         <LinkTab

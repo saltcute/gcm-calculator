@@ -7,7 +7,11 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SUPPORTED_LOCALES, type SupportedLocale } from "../i18n";
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({
+    className,
+}: {
+    className?: string;
+}) {
     const { t, i18n } = useTranslation();
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
@@ -23,12 +27,11 @@ export default function LanguageSwitcher() {
     };
 
     return (
-        <>
+        <div className={className}>
             <IconButton
                 aria-label="Change language"
                 onClick={(e) => setAnchorEl(e.currentTarget)}
                 size="small"
-                className="sm:mr-5"
             >
                 <LanguageIcon />
             </IconButton>
@@ -55,6 +58,6 @@ export default function LanguageSwitcher() {
                     </MenuItem>
                 ))}
             </Menu>
-        </>
+        </div>
     );
 }

@@ -23,9 +23,12 @@
                             "title": "已达成完美无缺",
                             "tooltip": "包括完美无缺与完美无缺+。"
                         },
-                        "versions": {
-                            "dx": "舞萌DX 2026 与更早版本",
-                            "circle": "舞萌DX 2027（预测/CiRCLE）或更晚版本"
+                        "version": {
+                            "title": "选择版本",
+                            "list": {
+                                "dx": "舞萌DX 2026 与更早版本",
+                                "circle": "舞萌DX 2027（预测/CiRCLE）或更晚版本"
+                            }
                         }
                     },
                     "output": {
@@ -53,9 +56,12 @@
                         },
                         "achievement": "分数",
                         "rating": "Rating",
-                        "versions": {
-                            "origin": "中二节奏 Paradise Lost 和更早版本",
-                            "new": "中二节奏NEW!! 或更晚版本"
+                        "version": {
+                            "title": "选择版本",
+                            "list": {
+                                "origin": "中二节奏 Paradise Lost 和更早版本",
+                                "new": "中二节奏NEW!! 或更晚版本"
+                            }
                         }
                     }
                 },
@@ -68,7 +74,43 @@
             "title": "音击",
             "tools": {
                 "rating": {
-                    "title": "Rating"
+                    "title": "Rating",
+                    "input": {
+                        "constants": {
+                            "title": "定数",
+                            "tooltip": "如果你不知道定数是什么，13/14 用 .0, 13+/14+ 用 .6 就可以了。"
+                        },
+                        "achievement": "技术评分",
+                        "rating": "Rating",
+                        "version": {
+                            "title": "选择版本",
+                            "list": {
+                                "origin": "音击 bright MEMORY Act.3 和更早版本",
+                                "refresh": "音击 Re:Fresh 或更晚版本"
+                            }
+                        },
+                        "stars": {
+                            "0": "0 星",
+                            "1": "1 星",
+                            "2": "2 星",
+                            "3": "3 星",
+                            "4": "4 星",
+                            "5": "5 星",
+                            "6": "虹 5 星"
+                        },
+                        "lamps": {
+                            "title": "连击类型",
+                            "values": {
+                                "none": "无",
+                                "fc": "FC",
+                                "ab": "AB",
+                                "abp": "AB+"
+                            }
+                        },
+                        "bell": {
+                            "title": "已取得 FB"
+                        }
+                    }
                 },
                 "achievement": {
                     "title": "技术评分"
