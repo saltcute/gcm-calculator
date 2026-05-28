@@ -6,7 +6,7 @@ export default function Footer() {
 
     return (
         <footer className="flex gap-4 justify-left p-3">
-            <a href="https://github.com/saltcute/gcm-calulator">Github</a>
+            <a href="https://github.com/saltcute/gcm-calculator">Github</a>
             <a href={`https://${getGameByPathname(pathname)}.cab/discord`}>
                 Discord
             </a>
