@@ -5,7 +5,7 @@ export default function Footer() {
     const { pathname } = useLocation();
 
     return (
-        <footer className="flex gap-4 justify-left p-3">
+        <footer className="justify-left flex gap-4 p-3">
             <a href="https://github.com/saltcute/gcm-calculator">Github</a>
             <a href={`https://${getGameByPathname(pathname)}.cab/discord`}>
                 Discord

@@ -21,7 +21,7 @@ export default function GameSelector({
         <Box
             className={clsx(
                 className,
-                "flex pl-5 pr-5 rounded-full overflow-hidden w-fit bg-white/75 backdrop-blur-sm justify-center",
+                "flex w-fit justify-center overflow-hidden rounded-full bg-white/75 pr-5 pl-5 backdrop-blur-sm",
             )}
         >
             <Tabs variant="scrollable" scrollButtons="auto" value={current}>
@@ -29,7 +29,7 @@ export default function GameSelector({
                     <LinkTab
                         key={v}
                         value={v}
-                        className="select-none text-base font-semibold font-(family-name:--locale-based-font-sans-block-family)"
+                        className="font-(family-name:--locale-based-font-sans-block-family) select-none font-semibold text-base"
                         to={location.pathname.replace(current, `${v}`)}
                         label={t(`games.${v}.title`)}
                         preload="intent"

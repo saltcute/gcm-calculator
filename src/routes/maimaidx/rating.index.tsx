@@ -56,8 +56,8 @@ function RouteComponent() {
     );
 
     return (
-        <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
-            <div className="flex flex-col lg:flex-row grow gap-4 items-center">
+        <div className="flex grow flex-col justify-center gap-8 lg:flex-row">
+            <div className="flex grow flex-col items-center gap-4 lg:flex-row">
                 <div className="flex flex-col gap-4">
                     <NumberField
                         label={t(
@@ -120,7 +120,7 @@ function RouteComponent() {
                 </div>
             </div>
             <div className="flex flex-5 flex-col text-nowrap">
-                <div className="flex flex-col items-center font-(family-name:--locale-based-font-sans-block-family)">
+                <div className="font-(family-name:--locale-based-font-sans-block-family) flex flex-col items-center">
                     <div className="text-4xl sm:text-5xl xl:text-6xl">
                         RATING
                     </div>
@@ -136,7 +136,7 @@ function RouteComponent() {
                         )}
                     </div>
                 </div>
-                <div className="text-center whitespace-pre-line sm:text-base text-sm xl:text-xl">
+                <div className="whitespace-pre-line text-center text-sm sm:text-base xl:text-xl">
                     {!diff
                         ? version === "circle" && !isAP
                             ? t(

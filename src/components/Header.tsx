@@ -6,8 +6,8 @@ export default function Header() {
     const location = useLocation();
 
     return (
-        <header className="grow-0 gap-4 flex-none flex pt-5 pb-4 w-full justify-evenly items-center">
-            <p className="md:flex-1 flex-none" />
+        <header className="flex w-full flex-none grow-0 items-center justify-evenly gap-4 pt-5 pb-4">
+            <p className="flex-none md:flex-1" />
             <GameSelector
                 current={GameSelector.filterValidGame(
                     location.pathname.split("/")[1],

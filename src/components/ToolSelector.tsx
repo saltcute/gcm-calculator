@@ -32,7 +32,7 @@ export default function ToolSelector({ className }: { className?: string }) {
             <Box
                 className={clsx(
                     className,
-                    "grow-0 pl-5 pr-5 rounded-full overflow-hidden w-fit bg-white/75 backdrop-blur-sm",
+                    "w-fit grow-0 overflow-hidden rounded-full bg-white/75 pr-5 pl-5 backdrop-blur-sm",
                 )}
             >
                 <Tabs value={currentTool} centered sx={{ minHeight: 36 }}>
@@ -40,7 +40,7 @@ export default function ToolSelector({ className }: { className?: string }) {
                         <LinkTab
                             key={v}
                             value={v}
-                            className="pl-2 pr-2 pt-2 pb-2 select-none text-xs font-semibold font-(family-name:--locale-based-font-sans-block-family)"
+                            className="font-(family-name:--locale-based-font-sans-block-family) select-none pt-2 pr-2 pb-2 pl-2 font-semibold text-xs"
                             to={location.pathname.replace(currentTool, `${v}`)}
                             label={t(`games.${currentGame}.tools.${v}.title`)}
                             preload="intent"

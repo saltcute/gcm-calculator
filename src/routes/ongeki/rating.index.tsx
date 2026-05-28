@@ -5,7 +5,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { createFileRoute } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import NumberField from "#/components/NumberField";
@@ -60,9 +60,9 @@ function RouteComponent() {
     );
 
     return (
-        <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
-            <div className="flex flex-col lg:flex-row grow gap-4 items-center">
-                <div className="flex flex-col gap-4 justify-center">
+        <div className="flex grow flex-col justify-center gap-8 lg:flex-row">
+            <div className="flex grow flex-col items-center gap-4 lg:flex-row">
+                <div className="flex flex-col justify-center gap-4">
                     <NumberField
                         label={t(
                             "games.ongeki.tools.rating.input.constants.title",
@@ -103,7 +103,7 @@ function RouteComponent() {
                             layout
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            className="flex gap-2 justify-between"
+                            className="flex justify-between gap-2"
                         >
                             <FormControl className="flex-1">
                                 <InputLabel id="ongeki-stars-select-label">
@@ -171,7 +171,7 @@ function RouteComponent() {
             </div>
             <div className="flex flex-4 flex-col text-nowrap">
                 {version === "origin" ? (
-                    <div className="flex flex-col items-center font-(family-name:--locale-based-font-sans-block-family)">
+                    <div className="font-(family-name:--locale-based-font-sans-block-family) flex flex-col items-center">
                         <div className="text-4xl sm:text-5xl xl:text-6xl">
                             RATING
                         </div>
@@ -183,7 +183,7 @@ function RouteComponent() {
                         </div>
                     </div>
                 ) : (
-                    <div className="flex flex-col text-center items-center font-(family-name:--locale-based-font-sans-block-family)">
+                    <div className="font-(family-name:--locale-based-font-sans-block-family) flex flex-col items-center text-center">
                         <div className="flex flex-col">
                             <div className="text-2xl sm:text-3xl xl:text-4xl">
                                 <ruby>
@@ -202,7 +202,7 @@ function RouteComponent() {
                                     ),
                                     3,
                                 )}
-                                <span className="text-black/20 text-2xl sm:text-3xl xl:text-4xl">
+                                <span className="text-2xl text-black/20 sm:text-3xl xl:text-4xl">
                                     (
                                     {truncate(
                                         calculateReFreshScoreRating(
@@ -218,7 +218,7 @@ function RouteComponent() {
                             </div>
                         </div>
                         <div className="flex flex-col">
-                            <div className="text-2xl sm:text-3xl xl:text-4xl ">
+                            <div className="text-2xl sm:text-3xl xl:text-4xl">
                                 <ruby>
                                     RATING <rp>(</rp>
                                     <rt>Star</rt>

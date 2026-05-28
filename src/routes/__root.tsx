@@ -88,7 +88,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                     <img
                         src={bgPath}
                         alt="Background"
-                        className="select-none blur-sm scale-102 fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none"
+                        className="pointer-events-none fixed inset-0 -z-10 h-full w-full scale-102 select-none object-cover blur-sm"
                     />
                 )}
                 <ThemeProvider
@@ -100,9 +100,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                         ]
                     }
                 >
-                    <div className="flex min-h-screen w-full flex-col gap-2 justify-around">
+                    <div className="flex min-h-screen w-full flex-col justify-around gap-2">
                         <Header />
-                        <div className="flex grow w-full font-sans antialiased wrap-anywhere flex-col gap-4">
+                        <div className="wrap-anywhere flex w-full grow flex-col gap-4 font-sans antialiased">
                             {children}
                         </div>
                         <Footer />

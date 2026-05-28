@@ -6,7 +6,7 @@ export const Route = createFileRoute("/maimaidx/achievement/")({
 
 function RouteComponent() {
     return (
-        <div className="text-4xl font-(family-name:--locale-based-font-sans-block-family)">
+        <div className="font-(family-name:--locale-based-font-sans-block-family) text-4xl">
             (Hopefully) Coming soon!
         </div>
     );

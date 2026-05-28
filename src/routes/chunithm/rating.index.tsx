@@ -45,8 +45,8 @@ function RouteComponent() {
     );
 
     return (
-        <div className="flex flex-col lg:flex-row grow gap-8 justify-center">
-            <div className="flex flex-col xl:flex-row grow gap-4 items-center">
+        <div className="flex grow flex-col justify-center gap-8 lg:flex-row">
+            <div className="flex grow flex-col items-center gap-4 xl:flex-row">
                 <div className="flex flex-col gap-4">
                     <NumberField
                         label={t(
@@ -87,7 +87,7 @@ function RouteComponent() {
                     />
                 </div>
             </div>
-            <div className="flex flex-3 flex-col text-nowrap items-center font-(family-name:--locale-based-font-sans-block-family)">
+            <div className="font-(family-name:--locale-based-font-sans-block-family) flex flex-3 flex-col items-center text-nowrap">
                 <div className="text-4xl sm:text-5xl xl:text-6xl">RATING</div>
                 <div className="text-7xl sm:text-8xl xl:text-9xl">
                     {truncate(
