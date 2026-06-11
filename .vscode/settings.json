@@ -22,5 +22,6 @@
         ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
         ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
     ],
-    "js/ts.preferences.autoImportSpecifierExcludeRegexes": ["^@mui/[^/]+$"]
+    "js/ts.preferences.autoImportSpecifierExcludeRegexes": ["^@mui/[^/]+$"],
+    "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
