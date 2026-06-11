@@ -99,11 +99,11 @@ export function calculateAchievementConstantsForRating(
 
         if (loScore === Number.POSITIVE_INFINITY) continue;
 
+        if (apBonus && loScore < MAX_SCORE_INT) continue;
+
         results.push({
             constant: iclInt / 10,
             minAchievement: loScore / 10000,
-            // Once the score cap is reached the rating no longer changes, so the
-            // range extends up to the maximum achievable score.
             maxAchievement:
                 hiScore >= MAX_SCORE_INT ? MAX_ACHIEVEMENT : hiScore / 10000,
         });
