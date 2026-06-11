@@ -6,16 +6,16 @@ import RadioGroup from "@mui/material/RadioGroup";
 import { useId } from "react";
 import { useTranslation } from "react-i18next";
 
-const GAME_VERSIONS = ["dx", "circle"] as const;
-
-export type GameVersions = (typeof GAME_VERSIONS)[number];
-
-export default function GameVersionSelector({
+export default function GameVersionSelector<T extends string>({
     value,
+    versions,
     onChange,
+    game,
 }: {
-    value: GameVersions;
-    onChange: (value: GameVersions) => void;
+    value: T;
+    versions: T[];
+    onChange: (value: T) => void;
+    game: string;
 }) {
     const id = useId();
     const { t } = useTranslation();
@@ -23,23 +23,21 @@ export default function GameVersionSelector({
     return (
         <FormControl>
             <FormLabel id={`${id}-label`}>
-                {t("games.maimaidx.tools.rating.input.version.title")}
+                {t("games.chunithm.tools.rating.input.version.title")}
             </FormLabel>
             <RadioGroup
                 aria-labelledby={`${id}-label`}
                 value={value}
-                onChange={(e) =>
-                    onChange(e.target.value as unknown as GameVersions)
-                }
+                onChange={(e) => onChange(e.target.value as unknown as T)}
                 name="radio-buttons-group"
             >
-                {GAME_VERSIONS.map((v) => (
+                {versions.map((v) => (
                     <FormControlLabel
                         key={v}
                         value={v}
                         control={<Radio />}
                         label={t(
-                            `games.maimaidx.tools.rating.input.version.list.${v}`,
+                            `games.${game}.tools.rating.input.version.list.${v}`,
                         )}
                     />
                 ))}
