@@ -1,6 +1,8 @@
 {
   "name": "gcm-calculator",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "forwardPorts": [3000],
   "appPort": ["3000:3000"],
   "postCreateCommand": "npm install",
