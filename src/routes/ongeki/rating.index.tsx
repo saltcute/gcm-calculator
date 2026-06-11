@@ -60,7 +60,7 @@ function RouteComponent() {
     );
 
     return (
-        <div className="flex grow flex-col justify-center gap-8 lg:flex-row">
+        <div className="flex grow flex-col items-center justify-center gap-8 lg:flex-row">
             <div className="flex grow flex-col items-center gap-4 lg:flex-row">
                 <div className="flex flex-col justify-center gap-4">
                     <NumberField

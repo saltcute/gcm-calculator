@@ -36,7 +36,26 @@
                     }
                 },
                 "achievement": {
-                    "title": "スコア"
+                    "title": "スコア",
+                    "input": {
+                        "rating": {
+                            "title": "レーティング"
+                        },
+                        "isAP": {
+                            "title": "ALL PERFECT 達成",
+                            "tooltip": "ALL PERFECT または ALL PERFECT+ のどちらでも構いません。"
+                        }
+                    },
+                    "output": {
+                        "table": {
+                            "headers": {
+                                "constants": "定数",
+                                "minAchievement": "最小スコア",
+                                "maxAchievement": "最大スコア"
+                            }
+                        },
+                        "impossible": "このレーティングは達成不可能です。"
+                    }
                 }
             }
         },

@@ -36,7 +36,26 @@
                     }
                 },
                 "achievement": {
-                    "title": "达成率"
+                    "title": "达成率",
+                    "input": {
+                        "rating": {
+                            "title": "Rating"
+                        },
+                        "isAP": {
+                            "title": "已达成完美无缺",
+                            "tooltip": "包括完美无缺与完美无缺+。"
+                        }
+                    },
+                    "output": {
+                        "table": {
+                            "headers": {
+                                "constants": "定数",
+                                "minAchievement": "最低达成率",
+                                "maxAchievement": "最高达成率"
+                            }
+                        },
+                        "impossible": "不可能达成此 rating。"
+                    }
                 }
             }
         },

@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 @theme {
     --font-sans: var(--locale-based-font-sans-family);
+    --font-serif: var(--locale-based-font-sans-block-family);
 }
 
 :root {

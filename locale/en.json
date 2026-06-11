@@ -42,7 +42,26 @@
                     }
                 },
                 "achievement": {
-                    "title": "Achievement Rate"
+                    "title": "Achievement Rate",
+                    "input": {
+                        "rating": {
+                            "title": "Rating"
+                        },
+                        "isAP": {
+                            "title": "Has AP Lamp",
+                            "tooltip": "Includes both All Perfect and All Perfect+."
+                        }
+                    },
+                    "output": {
+                        "table": {
+                            "headers": {
+                                "constants": "Internal Level",
+                                "minAchievement": "Minimum\nAchievement Rate",
+                                "maxAchievement": "Maximum\nAchievement Rate"
+                            }
+                        },
+                        "impossible": "It is impossible to achieve this rating."
+                    }
                 }
             }
         },

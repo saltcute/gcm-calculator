@@ -36,7 +36,26 @@
                     }
                 },
                 "achievement": {
-                    "title": "達成率"
+                    "title": "達成率",
+                    "input": {
+                        "rating": {
+                            "title": "Rating"
+                        },
+                        "isAP": {
+                            "title": "已達成 AP",
+                            "tooltip": "包括 AP 和 AP+。"
+                        }
+                    },
+                    "output": {
+                        "table": {
+                            "headers": {
+                                "constants": "定數",
+                                "minAchievement": "最少達成率",
+                                "maxAchievement": "最多達成率"
+                            }
+                        },
+                        "impossible": "沒有可能獲得這個 rating。"
+                    }
                 }
             }
         },

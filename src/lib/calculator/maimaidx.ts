@@ -16,16 +16,102 @@ export const RATING_CONSTANTS = [
     [90, 15.2],
     [80, 13.6],
     [79.9999, 12.8],
-    [75, 13.6],
-    [70, 13.6],
-    [60, 13.6],
-    [50, 13.6],
+    [75, 12.0],
+    [70, 11.2],
+    [60, 9.6],
+    [50, 8.0],
     [40, 6.4],
     [30, 4.8],
     [20, 3.2],
     [10, 1.6],
     [0, 0],
 ];
+const RATING_COEFFICIENT_TIERS: ReadonlyArray<readonly [number, number]> =
+    RATING_CONSTANTS.map(
+        ([percent, coefficient]) =>
+            [
+                Math.round(percent * 10000),
+                Math.round(coefficient * 10),
+            ] as const,
+    );
+
+const MAX_SCORE_INT = 1005000;
+const MAX_ACHIEVEMENT = 101;
+const MIN_CONSTANT_INT = 10;
+const MAX_CONSTANT_INT = 150;
+
+export interface AchievementConstantCombination {
+    constant: number;
+    minAchievement: number;
+    maxAchievement: number;
+}
+
+/**
+ * Find every internal level (constant) that can produce the given rating, along
+ * with the achievement range that yields it on that chart.
+ *
+ * @param rating Target single-chart rating.
+ * @returns One entry per qualifying constant, ascending by constant.
+ */
+export function calculateAchievementConstantsForRating(
+    rating: number,
+    isAP: boolean,
+    version: "dx" | "circle",
+): AchievementConstantCombination[] {
+    const apBonus = version === "circle" && isAP;
+    const target = rating - (apBonus ? 1 : 0);
+    if (target < 0) return [];
+
+    const results: AchievementConstantCombination[] = [];
+
+    for (let iclInt = MIN_CONSTANT_INT; iclInt <= MAX_CONSTANT_INT; iclInt++) {
+        let loScore = Number.POSITIVE_INFINITY;
+        let hiScore = Number.NEGATIVE_INFINITY;
+
+        for (let i = 0; i < RATING_COEFFICIENT_TIERS.length; i++) {
+            const [boundary, coeff] = RATING_COEFFICIENT_TIERS[i];
+            const tierLow = boundary;
+            const tierHigh =
+                i === 0
+                    ? MAX_SCORE_INT
+                    : RATING_COEFFICIENT_TIERS[i - 1][0] - 1;
+            if (tierLow > tierHigh) continue;
+
+            const k = coeff * iclInt;
+            let candidateLo: number;
+            let candidateHi: number;
+            if (k === 0) {
+                if (target !== 0) continue;
+                candidateLo = tierLow;
+                candidateHi = tierHigh;
+            } else {
+                candidateLo = Math.ceil((target * 1e8) / k);
+                candidateHi = Math.ceil(((target + 1) * 1e8) / k) - 1;
+            }
+
+            const lo = Math.max(candidateLo, tierLow);
+            const hi = Math.min(candidateHi, tierHigh);
+            if (lo > hi) continue;
+
+            if (lo < loScore) loScore = lo;
+            if (hi > hiScore) hiScore = hi;
+        }
+
+        if (loScore === Number.POSITIVE_INFINITY) continue;
+
+        results.push({
+            constant: iclInt / 10,
+            minAchievement: loScore / 10000,
+            // Once the score cap is reached the rating no longer changes, so the
+            // range extends up to the maximum achievable score.
+            maxAchievement:
+                hiScore >= MAX_SCORE_INT ? MAX_ACHIEVEMENT : hiScore / 10000,
+        });
+    }
+
+    return results;
+}
+
 /**
  * Calculate the rating of a score.
  * @param internalLevel Internal level of the chart.
