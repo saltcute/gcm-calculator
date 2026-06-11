@@ -8,17 +8,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ONGEKIRating } from "rg-stats";
 import NumberField from "#/components/NumberField";
-import GameVersionSelector, {
+import OngekiGameVersionSelector, {
     type GameVersions,
-} from "#/components/ongeki/rating/GameVersionSelector";
+} from "#/components/ongeki/rating/OngekiGameVersionSelector";
 import useLoadStorage from "#/hooks/useLoadStorage";
 import useStorage from "#/hooks/useStorage";
 import {
-    ComboLamps,
-    calculateReFreshScoreRating,
-    calculateReFreshStarRating,
-    calculateScoreRating,
+    COMBO_LAMPS,
+    type ComboLamps,
+    LAMP_MAP,
 } from "#/lib/calculator/ongeki";
 import { truncate } from "#/lib/util";
 
@@ -94,7 +94,7 @@ function RouteComponent() {
                     ></NumberField>
                 </div>
                 <div className="flex flex-7 flex-col gap-2">
-                    <GameVersionSelector
+                    <OngekiGameVersionSelector
                         value={version}
                         onChange={(v) => setVersion(v)}
                     />
@@ -144,7 +144,7 @@ function RouteComponent() {
                                     )}
                                     onChange={(e) => setCombo(e.target.value)}
                                 >
-                                    {ComboLamps.map((v) => (
+                                    {COMBO_LAMPS.map((v) => (
                                         <MenuItem key={v} value={v}>
                                             {t(
                                                 `games.ongeki.tools.rating.input.lamps.values.${v}`,
@@ -177,7 +177,7 @@ function RouteComponent() {
                         </div>
                         <div className="text-7xl sm:text-8xl xl:text-9xl">
                             {truncate(
-                                calculateScoreRating(constants, achievement),
+                                ONGEKIRating.calculate(achievement, constants),
                                 2,
                             )}
                         </div>
@@ -194,10 +194,10 @@ function RouteComponent() {
                             </div>
                             <div className="text-5xl sm:text-6xl xl:text-7xl">
                                 {truncate(
-                                    calculateReFreshScoreRating(
+                                    ONGEKIRating.calculateRefresh(
                                         constants,
                                         achievement,
-                                        combo,
+                                        LAMP_MAP[combo],
                                         bell,
                                     ),
                                     3,
@@ -205,10 +205,10 @@ function RouteComponent() {
                                 <span className="text-2xl text-black/20 sm:text-3xl xl:text-4xl">
                                     (
                                     {truncate(
-                                        calculateReFreshScoreRating(
+                                        ONGEKIRating.calculateRefresh(
                                             constants,
                                             achievement,
-                                            combo,
+                                            LAMP_MAP[combo],
                                             bell,
                                         ) * 1.2,
                                         3,
@@ -228,7 +228,7 @@ function RouteComponent() {
                             <div className="text-5xl sm:text-6xl xl:text-7xl">
                                 +
                                 {truncate(
-                                    calculateReFreshStarRating(
+                                    ONGEKIRating.calculatePlatinum(
                                         constants,
                                         stars,
                                     ),

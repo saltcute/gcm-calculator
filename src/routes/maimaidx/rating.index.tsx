@@ -4,9 +4,9 @@ import Tooltip from "@mui/material/Tooltip";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import GameVersionSelector, {
+import MaimaiDXGameVersionSelector, {
     type GameVersions,
-} from "#/components/maimaidx/rating/GameVersionSelector";
+} from "#/components/maimaidx/rating/MaimaiDXGameVersionSelector";
 import NumberField from "#/components/NumberField";
 import useLoadStorage from "#/hooks/useLoadStorage";
 import useStorage from "#/hooks/useStorage";
@@ -92,7 +92,7 @@ function RouteComponent() {
                     ></NumberField>
                 </div>
                 <div className="flex flex-col">
-                    <GameVersionSelector
+                    <MaimaiDXGameVersionSelector
                         value={version}
                         onChange={(v) => setVersion(v)}
                     />

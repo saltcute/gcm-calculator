@@ -1,16 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import GameVersionSelector, {
-    type GameVersions,
-} from "#/components/chunithm/rating/GameVersionSelector";
+import { CHUNITHMRating } from "rg-stats";
+import type { GameVersions } from "#/components/chunithm/rating/ChunithmGameVersionSelector";
+import ChunithmGameVersionSelector from "#/components/chunithm/rating/ChunithmGameVersionSelector";
 import NumberField from "#/components/NumberField";
 import useLoadStorage from "#/hooks/useLoadStorage";
 import useStorage from "#/hooks/useStorage";
-import {
-    calculateParadiseLostRating,
-    calculateRating,
-} from "#/lib/calculator/chunithm";
+import { calculateParadiseLostRating } from "#/lib/calculator/chunithm";
 import { truncate } from "#/lib/util";
 
 export const Route = createFileRoute("/chunithm/rating/")({
@@ -81,7 +78,7 @@ function RouteComponent() {
                     ></NumberField>
                 </div>
                 <div className="flex flex-col">
-                    <GameVersionSelector
+                    <ChunithmGameVersionSelector
                         value={version}
                         onChange={(v) => setVersion(v)}
                     />
@@ -93,7 +90,7 @@ function RouteComponent() {
                     {truncate(
                         (version === "origin"
                             ? calculateParadiseLostRating
-                            : calculateRating)(constants, achievement),
+                            : CHUNITHMRating.calculate)(achievement, constants),
                         2,
                     )}
                 </div>

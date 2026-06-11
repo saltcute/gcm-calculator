@@ -1,15 +1,21 @@
+import { MaimaiDXRate } from "rg-stats";
 import { truncateNumber } from "../util";
 
 export const RATING_CONSTANTS = [
     [100.5, 22.4],
+    [100.4999, 22.2],
     [100, 21.6],
+    [99.9999, 21.4],
     [99.5, 21.1],
     [99, 20.8],
+    [98.9999, 20.6],
     [98, 20.3],
     [97, 20.0],
+    [96.9999, 17.6],
     [94, 16.8],
     [90, 15.2],
     [80, 13.6],
+    [79.9999, 12.8],
     [75, 13.6],
     [70, 13.6],
     [60, 13.6],
@@ -32,17 +38,11 @@ export function calculateRating(
     isAP: boolean,
     version: "dx" | "circle",
 ): number {
-    const [_, ratingConstant] = RATING_CONSTANTS.find(
-        ([score]) => achievement >= score,
-    ) || [0, 0];
-    let rating = truncateNumber(
-        (Math.min(achievement, 100.5) / 100) * ratingConstant * internalLevel,
-        0,
+    return MaimaiDXRate.calculate(
+        achievement,
+        internalLevel,
+        (version === "circle" && isAP && "ALL PERFECT") || undefined,
     );
-    if (version === "circle" && isAP) {
-        rating += 1;
-    }
-    return rating;
 }
 
 export function calculateNextRatingBoost(
@@ -81,8 +81,7 @@ export function calculateNextRatingBoost(
         const [, currentConstant] = RATING_CONSTANTS[currentTierIndex];
         if (currentConstant > 0 && internalLevel > 0) {
             const required =
-                ((currentRating + 1) * 100) /
-                (currentConstant * internalLevel);
+                ((currentRating + 1) * 100) / (currentConstant * internalLevel);
             const base = Math.round(ceilToStep(required) * ACH_MULT);
             for (let i = 0; i < 10; i++) {
                 candidates.push((base + i) / ACH_MULT);
