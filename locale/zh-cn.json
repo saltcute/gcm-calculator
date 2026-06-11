@@ -120,7 +120,11 @@
             "title": "maimai FiNALE",
             "tools": {
                 "rating": {
-                    "title": "Rating"
+                    "title": "Rating",
+                    "input": {
+                        "achievement": "分数",
+                        "maxAchievement": "最大分数"
+                    }
                 }
             }
         }
