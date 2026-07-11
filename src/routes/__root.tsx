@@ -25,6 +25,7 @@ import Header from "#/components/Header";
 import { muiThemeByGame } from "#/constants/muiThemeByGame";
 import appCss from "../styles.css?url";
 
+import "#/lib/injectThrowIf";
 export const Route = createRootRoute({
     beforeLoad: async () => {
         const locale = getInitialLocale();
