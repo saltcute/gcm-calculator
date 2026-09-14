@@ -102,53 +102,66 @@ function RouteComponent() {
                     </Tooltip>
                 </div>
             </div>
-            <div className="flex min-w-1/1 grow flex-col justify-center rounded-2xl bg-white/55 p-0 text-center align-middle font-serif shadow-2xl lg:min-w-[initial] lg:text-2xl">
-                {possibleAchievementRates.length <= 0 ? (
-                    <div className="m-8">
-                        {t(
-                            "games.maimaidx.tools.achievement.output.impossible",
-                        )}
-                    </div>
-                ) : (
-                    <TableContainer component="div">
-                        <Table aria-label="simple table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell className="whitespace-nowrap">
-                                        {t(
-                                            `games.maimaidx.tools.achievement.output.table.headers.constants`,
-                                        )}
-                                    </TableCell>
-                                    <TableCell className="whitespace-pre-wrap">
-                                        {t(
-                                            `games.maimaidx.tools.achievement.output.table.headers.minAchievement`,
-                                        )}
-                                    </TableCell>
-                                    <TableCell className="whitespace-pre-wrap">
-                                        {t(
-                                            `games.maimaidx.tools.achievement.output.table.headers.maxAchievement`,
-                                        )}
-                                    </TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {possibleAchievementRates
-                                    .sort((a, b) => b.constant - a.constant)
-                                    .map((v) => (
-                                        <TableRow key={v.constant}>
-                                            <TableCell>{v.constant}</TableCell>
-                                            <TableCell>
-                                                {truncate(v.minAchievement, 4)}
-                                            </TableCell>
-                                            <TableCell>
-                                                {truncate(v.maxAchievement, 4)}
-                                            </TableCell>
-                                        </TableRow>
-                                    ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                )}
+            <div className="flex min-w-1/1 grow flex-col justify-center lg:relative lg:min-w-0 lg:self-stretch">
+                <div className="flex max-h-[60dvh] w-full flex-col overflow-hidden rounded-2xl bg-white/55 text-center font-serif shadow-2xl lg:absolute lg:inset-x-0 lg:top-1/2 lg:max-h-full lg:-translate-y-1/2 lg:text-2xl">
+                    {possibleAchievementRates.length <= 0 ? (
+                        <div className="m-8">
+                            {t(
+                                "games.maimaidx.tools.achievement.output.impossible",
+                            )}
+                        </div>
+                    ) : (
+                        <TableContainer
+                            component="div"
+                            className="min-h-0 overflow-y-auto"
+                        >
+                            <Table aria-label="simple table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell className="whitespace-nowrap">
+                                            {t(
+                                                `games.maimaidx.tools.achievement.output.table.headers.constants`,
+                                            )}
+                                        </TableCell>
+                                        <TableCell className="whitespace-pre-wrap">
+                                            {t(
+                                                `games.maimaidx.tools.achievement.output.table.headers.minAchievement`,
+                                            )}
+                                        </TableCell>
+                                        <TableCell className="whitespace-pre-wrap">
+                                            {t(
+                                                `games.maimaidx.tools.achievement.output.table.headers.maxAchievement`,
+                                            )}
+                                        </TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {possibleAchievementRates
+                                        .sort((a, b) => b.constant - a.constant)
+                                        .map((v) => (
+                                            <TableRow key={v.constant}>
+                                                <TableCell>
+                                                    {v.constant}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {truncate(
+                                                        v.minAchievement,
+                                                        4,
+                                                    )}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {truncate(
+                                                        v.maxAchievement,
+                                                        4,
+                                                    )}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    )}
+                </div>
             </div>
         </div>
     );
